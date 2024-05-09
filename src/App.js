@@ -115,12 +115,13 @@ function reducer(state, {type, payload}) {
     }
 }
 
-function evaluate({ currentOperand, previousOperand, operation }) {
-    const prev = parseFloat(previousOperand);
-    const current = parseFloat(currentOperand);
-    if (isNaN(prev) || isNaN(current)) return ""; // If either operand is not a number, return empty string
-    let computation = ""; // Initialize computation variable
-
+function evaluate({ currentOperand, previousOperand, operation}) {
+    const prev = parseFloat(previousOperand)
+    const current = parseFloat(currentOperand)
+    if (isNaN(prev) || isNaN(current)) return "" // isNaN: if they are not a num
+    // by default, the computation is nothing
+    let computation = ""
+    // otherwise switch through a bunch of different statements for the operation
     switch (operation) {
         case "+":
             computation = (prev + current).toFixed(10); // Round to 10 decimal places
@@ -143,7 +144,6 @@ function evaluate({ currentOperand, previousOperand, operation }) {
 
     return computation;
 }
-
 
 const INTEGER_FORMATTER = new Intl.NumberFormat("en-us", { // English format
     maximumFractionDigits: 0, // make sure there is no fractions
