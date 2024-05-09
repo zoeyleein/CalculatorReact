@@ -1,18 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+
+
 *, *::before, *::after {
   box-sizing: border-box;
+  font-family: 'Overpass', sans-serif;
 }
 
 body {
   margin: 0;
-  background: linear-gradient(to right, #00AADD, #00FF6c);
+  background: linear-gradient(to left, #6a85b6, #bac8e0);
 }
 
 .calculator-grid {
   display: grid;
-  margin-top: 2rem;
+  margin-top: 3rem;
   justify-content: center;
-  grid-template-columns: repeat(4,6rem);
-  grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
+  grid-template-columns: repeat(4, 6rem);
+  grid-template-rows: minmax(7rem, auto) repeat(6, 6rem);
 }
 
 .calculator-grid > button {
@@ -24,7 +28,7 @@ body {
 }
 
 .calculator-grid > button:hover,
-.calculator-grid > button:focus  {
+.calculator-grid > button:focus {
   background-color: rgba(255, 255, 255, .9);
 }
 
@@ -32,13 +36,27 @@ body {
   grid-column: span 2;
 }
 
+/* Footer */
+.footer {
+  grid-column: span 4;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-top: 2.5rem;
+  margin-bottom: 5rem;
+  color: rgba(255, 255, 255, .75);;
+}
+
+.footer p {
+  font-size: 0.8rem;
+}
+
 .output {
-  grid-column: 1 / -1; /* -1 is to take the entire top */
+  grid-column: 1 / -1;
   background-color: rgba(0, 0, 0, .75);
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  justify-content: space-around; /* the content space between items */
+  justify-content: space-around;
   padding: .75rem;
   word-wrap: break-word;
   word-break: break-all;
